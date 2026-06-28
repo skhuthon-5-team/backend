@@ -1,5 +1,4 @@
 package com.faillog.failure.api.dto.request;
 
-public class FailureSaveRequestDto {
-
+public class FailureUpdateRequestDto {
 }
