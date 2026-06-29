@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: faillog
+
+  profiles:
+    active: local
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
