@@ -4,6 +4,7 @@ import com.faillog.auth.api.dto.request.LoginRequestDto;
 import com.faillog.auth.api.dto.request.SignupRequestDto;
 import com.faillog.auth.api.dto.response.LoginResponseDto;
 import com.faillog.auth.application.AuthService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,13 +20,13 @@ public class AuthController {
 
     //POST /api/auth/signup
     @PostMapping("/signup")
-    public void signup(@RequestBody SignupRequestDto request) {
+    public void signup(@Valid @RequestBody SignupRequestDto request) {
         authService.signup(request);
     }
 
     //POST /api/auth/login
     @PostMapping("/login")
-    public LoginResponseDto login(@RequestBody LoginRequestDto request) {
+    public LoginResponseDto login(@Valid @RequestBody LoginRequestDto request) {
         return authService.login(request);
     }
 

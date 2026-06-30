@@ -3,6 +3,7 @@ package com.faillog.user.api;
 import com.faillog.user.api.dto.request.UserUpdateRequestDto;
 import com.faillog.user.api.dto.response.UserInfoResponseDto;
 import com.faillog.user.application.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +24,7 @@ public class UserController {
     @PatchMapping("/{userId}")
     public void updateProfile(
             @PathVariable Long userId,
-            @RequestBody UserUpdateRequestDto request
+            @Valid @RequestBody UserUpdateRequestDto request
     ) {
         userService.updateProfile(userId, request);
     }
