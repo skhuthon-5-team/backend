@@ -2,10 +2,13 @@ package com.faillog.user.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
@@ -21,7 +24,7 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false)
+    @Column
     private String password;
 
     @Enumerated(EnumType.STRING)
@@ -37,11 +40,10 @@ public class User {
     @Column(name = "profile_image")
     private String profileImage;
 
-    @Column(name = "created_at", nullable = false)
+    @CreatedDate
+    @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    //created_at은 @CreatedDate를 쓸지,
-    //LocalDateTime.now()로 넣을지
 
     public void updateProfile(String nickname, String profileImage) {
         this.nickname = nickname;

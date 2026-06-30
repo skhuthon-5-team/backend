@@ -6,15 +6,18 @@ import com.faillog.user.domain.User;
 import com.faillog.user.domain.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class UserService {
 
     // UserRepository를 주입받아 DB와 통신
     private final UserRepository userRepository;
 
     //내 정보 조회
+    @Transactional(readOnly = true)
     public UserInfoResponseDto getMyInfo(Long userId) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다."));
@@ -30,6 +33,7 @@ public class UserService {
     }
 
     //프로필 수정
+    @Transactional
     public void updateProfile(Long userId, UserUpdateRequestDto request) {
         User user = userRepository.findById(userId) .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다."));
 
@@ -37,6 +41,5 @@ public class UserService {
                 request.getNickname(),
                 request.getProfileImage()
         );
-        // TODO : User 엔티티에 프로필 수정 메서드 추가 후 수정 예정
     }
 }
