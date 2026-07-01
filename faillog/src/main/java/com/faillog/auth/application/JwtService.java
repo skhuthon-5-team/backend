@@ -27,21 +27,6 @@ public class JwtService {
                 .compact(); //토큰 문자열로 변환
     }
 
-    //이메일 추출
-    public String getEmail(String token) {
-        return parseClaims(token).getSubject();
-    }
-
-    //토큰 검증
-    public boolean validateToken(String token) {
-        try {parseClaims(token);
-            return true;
-
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
     private SecretKey getSigningKey() {
         return Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
     }

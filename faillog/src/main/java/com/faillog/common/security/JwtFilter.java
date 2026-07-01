@@ -46,7 +46,7 @@ public class JwtFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(authentication);
 
             } catch (Exception e) {
-                // 토큰이 만료됐거나 이상하면 에러가 터져서 여기로 옴 -> 무효 처리
+                // 토큰이 만료됐거나 이상하면 무효 처리
                 SecurityContextHolder.clearContext();
             }
         }
