@@ -1,4 +1,36 @@
 package com.faillog.common.response;
 
-public class SuccessCode {
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import org.springframework.http.HttpStatus;
+
+@Getter
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+public enum SuccessCode {
+
+    /**
+     * 200 OK (성공)
+     */
+    FAILURE_FIND_SUCCESS(HttpStatus.OK, "실패담을 성공적으로 조회했습니다."),
+    FAILURE_SEARCH_SUCCESS(HttpStatus.OK, "실패담을 키워드로 성공적으로 조회했습니다."),
+    FAILURE_FIND_BY_CATEGORY_SUCCESS(HttpStatus.OK, "카테고리별로 실패담을 성공적으로 조회했습니다."),
+    FAILURE_FIND_POPULAR_SUCCESS(HttpStatus.OK, "인기 실패담을 성공적으로 조회했습니다."),
+    USER_UPDATE_SUCCESS(HttpStatus.OK, "사용자가 성공적으로 수정되었습니다."),
+    FAILURE_UPDATE_SUCCESS(HttpStatus.OK, "실패담이 성공적으로 수정되었습니다."),
+    USER_DELETE_SUCCESS(HttpStatus.OK, "사용자가 성공적으로 삭제되었습니다."),
+    FAILURE_DELETE_SUCCESS(HttpStatus.OK, "실패담이 성공적으로 삭제되었습니다."),
+
+    /**
+     * 201 CREATED (생성 성공)
+     */
+    USER_SAVE_SUCCESS(HttpStatus.CREATED, "사용자가 성공적으로 생성되었습니다."),
+    FAILURE_SAVE_SUCCESS(HttpStatus.CREATED, "실패담이 성공적으로 생성되었습니다.");
+
+    private final HttpStatus httpStatus;
+    private final String message;
+
+    public int getHttpStatusCode() {       // HTTP 상태 코드에서 404와 같은 숫자 값만 반환해 주기 위한 메소드
+        return httpStatus.value();
+    }
 }

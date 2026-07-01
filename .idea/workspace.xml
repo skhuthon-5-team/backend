@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d49bdbe-df83-4866-ade5-fcf478abda52" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/faillog/src/main/java/com/faillog/common/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/faillog/src/main/java/com/faillog/common/config/SecurityConfig.java" afterDir="false" />
+    <list default="true" id="d27a8da5-e7de-4aba-8353-5632dbb5f89a" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/faillog/src/main/java/com/faillog/common/response/ErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/faillog/src/main/java/com/faillog/common/response/SuccessCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/faillog/src/main/java/com/faillog/common/response/SuccessCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/faillog/src/main/java/com/faillog/common/response/code/CommonErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/faillog/src/main/java/com/faillog/common/response/code/CommonErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/faillog/src/main/java/com/faillog/common/response/code/FailureErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/faillog/src/main/java/com/faillog/common/response/code/FailureErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/faillog/src/main/java/com/faillog/common/response/code/UserErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/faillog/src/main/java/com/faillog/common/response/code/UserErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/faillog/src/main/java/com/faillog/common/template/ApiResTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/faillog/src/main/java/com/faillog/common/template/ApiResTemplate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +33,11 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="faillog" type="f1a62948:ProjectNode" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="faillog" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
             </expand>
             <select />
           </tree_state>
@@ -37,40 +45,63 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
 }</component>
-  <component name="ProjectId" id="3FqRh02VjCrspKhtmesR4a4vRCC" />
+  <component name="ProjectId" id="3FonhuVYCh1zDWf9Q09HtvKlNd7" />
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "feature/10",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/wb/Desktop/github/skhuthon/backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Gradle.C:/Users/최성혁/Desktop/backend/faillog/build.gradle.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.faillog 빌드.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.소스 다운로드.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.FaillogApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/#14&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;프로젝트&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
+    &quot;애플리케이션.FaillogApplication.executor&quot;: &quot;Run&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="FaillogApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ACTIVE_PROFILES" value="local" />
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <module name="faillog_main" />
+      <module name="faillog.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.faillog.FaillogApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -80,19 +111,25 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.25557.131" />
-        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-IU-252.25557.131" />
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.32098.37" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.32098.37" />
       </set>
     </attachedChunks>
   </component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="0d49bdbe-df83-4866-ade5-fcf478abda52" name="Changes" comment="" />
-      <created>1782800727813</created>
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="d27a8da5-e7de-4aba-8353-5632dbb5f89a" name="변경" comment="" />
+      <created>1782750415664</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1782800727813</updated>
-      <workItem from="1782800728797" duration="9679000" />
+      <updated>1782750415664</updated>
+      <workItem from="1782750418304" duration="45000" />
+      <workItem from="1782795037721" duration="23978000" />
+      <workItem from="1782831027774" duration="5064000" />
+      <workItem from="1782836616755" duration="866000" />
+      <workItem from="1782871174143" duration="10641000" />
+      <workItem from="1782896910871" duration="1574000" />
+      <workItem from="1782905404286" duration="8960000" />
     </task>
     <servers />
   </component>
