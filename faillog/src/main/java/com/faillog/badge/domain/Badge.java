@@ -33,6 +33,6 @@ public class Badge {
     @Column(name = "image_url")
     private String imageUrl;
 
-    @Column(nullable = false)
+    @Column(name = "badge_condition", nullable = false)
     private String condition;
 }
