@@ -12,6 +12,8 @@ import com.faillog.failure.domain.FailureCategory;
 import com.faillog.failure.domain.repository.FailureRepository;
 import com.faillog.user.domain.User;
 import com.faillog.user.domain.repository.UserRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -44,58 +46,45 @@ public class FailureService {
         failureRepository.save(failure);
     }
 
-    public List<FailureInfoResponseDto> failureFindUser(Long userId) {
+    public Page<FailureInfoResponseDto> failureFindUser(Long userId, Pageable pageable) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new BusinessException(
                         ErrorCode.USER_NOT_FOUND_EXCEPTION,
                         ErrorCode.USER_NOT_FOUND_EXCEPTION.getMessage()));
 
-        List<Failure> failures = failureRepository.findByUser(user);
-        return failures.stream().map(FailureInfoResponseDto::from).toList();
+        return failureRepository.findByUser(user, pageable).
+                map(FailureInfoResponseDto::from);
     }
 
+    @Transactional
     public FailureInfoResponseDto failureFindById(Long failureId) {
         Failure failure = failureRepository.findById(failureId)
                 .orElseThrow(()-> new BusinessException(
                         ErrorCode.FAILURE_NOT_FOUND_EXCEPTION,
                         ErrorCode.FAILURE_NOT_FOUND_EXCEPTION.getMessage()
                 ));
+        failure.increaseViewCount();
         return FailureInfoResponseDto.from(failure);
     }
 
-    public FailureListResponseDto failureFindAll(){
-        List<FailureInfoResponseDto> failures = failureRepository.findAll()
-                .stream()
-                .map(FailureInfoResponseDto::from)
-                .toList();
-        return FailureListResponseDto.from(failures);
+    public Page<FailureInfoResponseDto> failureFindAll(Pageable pageable){
+        return failureRepository.findAll(pageable)
+                .map(FailureInfoResponseDto::from);
     }
 
-    public FailureListResponseDto failureSearch(String keyword) {
-        List<FailureInfoResponseDto> failures =
-                failureRepository.findByTitleContaining(keyword)
-                        .stream()
-                        .map(FailureInfoResponseDto::from)
-                        .toList();
-        return FailureListResponseDto.from(failures);
+    public Page<FailureInfoResponseDto> failureSearch(String keyword, Pageable pageable) {
+        return failureRepository.findByTitleContaining(keyword, pageable)
+                .map(FailureInfoResponseDto::from);
     }
 
-    public FailureListResponseDto failureFindByCategory(FailureCategory category) {
-        List<FailureInfoResponseDto> failures =
-                failureRepository.findByCategory(category)
-                        .stream()
-                        .map(FailureInfoResponseDto::from)
-                        .toList();
-        return FailureListResponseDto.from(failures);
+    public Page<FailureInfoResponseDto> failureFindByCategory(FailureCategory category, Pageable pageable) {
+        return failureRepository.findByCategory(category, pageable)
+                .map(FailureInfoResponseDto::from);
     }
 
-    public FailureListResponseDto failureFindPopular() {
-        List<FailureInfoResponseDto> failures =
-                failureRepository.findAllByOrderByViewCountDesc()
-                        .stream()
-                        .map(FailureInfoResponseDto::from)
-                        .toList();
-        return FailureListResponseDto.from(failures);
+    public Page<FailureInfoResponseDto> failureFindPopular(Pageable pageable) {
+        return failureRepository.findAll(pageable)
+                .map(FailureInfoResponseDto::from);
     }
 
     @Transactional
