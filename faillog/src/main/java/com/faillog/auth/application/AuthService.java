@@ -8,9 +8,7 @@ import com.faillog.user.domain.User;
 import com.faillog.user.domain.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
-
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -19,6 +17,7 @@ public class AuthService {
     private final UserRepository userRepository;
 
     //회원 가입
+    @Transactional
     public void signup(SignupRequestDto request) {
 
         if (userRepository.existsByEmail(request.getEmail())) {
@@ -34,13 +33,13 @@ public class AuthService {
                 .password(request.getPassword())
                 .nickname(request.getNickname())
                 .provider(Provider.LOCAL)
-                .createdAt(LocalDateTime.now())
                 .build();
 
         userRepository.save(user);
     }
 
     //로그인
+    @Transactional(readOnly = true)
     public LoginResponseDto login(LoginRequestDto request) {
 
         User user = userRepository.findByEmail(request.getEmail())
