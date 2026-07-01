@@ -18,16 +18,10 @@ public class SecurityConfig {
 
     private final JwtService jwtService;
 
-    @Bean
-    public JwtFilter jwtFilter() {
-        return new JwtFilter(jwtService);
-    }
-
     //매개변수로
     @Bean
     public SecurityFilterChain securityFilterChain(
-            HttpSecurity http,
-            JwtFilter jwtFilter
+            HttpSecurity http
     ) throws Exception {
 
         http
@@ -43,7 +37,7 @@ public class SecurityConfig {
                         // 나중에 requestMatchers로 경로마다 권한 나눌 예정
                         .anyRequest().permitAll()
                 )
-                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(new JwtFilter(jwtService), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
